@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <title>Frontend Mentor | Expenses chart component</title>
+
+  <style>
+    .balance-app {
+      padding: 16px;
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .balance-app header {
+      width: 100%;
+      max-width: 540px;
+      margin-bottom: 16px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--soft-red);
+      border-radius: 10px;
+    }
+
+    .balance-app header h2 {
+      max-width: 90px;
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--pale-orange);
+    }
+
+    .current-balance {
+      display: block;
+      margin-top: 5px;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .expences {
+      width: 100%;
+      max-width: 540px;
+      padding: 20px;
+      background-color: var(--pale-orange);
+      border-radius: 10px;
+    }
+
+    .chart {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+      border-bottom: 2px solid var(--cream);
+    }
+
+    .chart h2 {
+      margin: 0 0 50px;
+      font-size: 24px;
+      font-weight: 700;
+      grid-area: 1 / 1 / -1 / -1;
+      color: var(--dark-brown);
+    }
+
+    .chart .label {
+      font-size: 12px;
+      color: var(--medium-brown);
+    }
+
+    .chart .bar {
+      width: 100%;
+      height: 100px;
+      position: relative;
+      background-color: var(--soft-red);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color .3s ease-in-out;
+    }
+
+    .chart .bar.highest {
+      background-color: var(--cyan);
+    }
+
+    .chart .bar::before {
+      content: '$'attr(data-expences);
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      padding: 10px 8px;
+      transform: translateX(-50%) scale(0);
+      color: var(--pale-orange);
+      font-size: 16px;
+      font-weight: 700;
+      transition: transform .3s ease-out;
+      background-color: var(--dark-brown);
+      border-radius: 4px;
+    }
+
+    .chart .bar:hover {
+      background-color: hsl(10, 100%, 76%);
+    }
+
+    .chart .bar.highest:hover {
+      background-color: hsl(187, 49%, 80%);
+    }
+
+    .chart .bar:hover::before {
+      transform: translateX(-50%) scale(1);
+    }
+
+    .result {
+      display: flex;
+    }
+
+    .result h2 {
+      max-width: 120px;
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--medium-brown);
+    }
+
+    .total-spent {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--dark-brown);
+    }
+
+    .comparison {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 16px;
+      color: var(--medium-brown);
+    }
+
+    .comparison .to-last-month {
+      font-weight: 700;
+      color: var(--dark-brown);
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    @media (min-width: 1024px) {
+
+    }
+  </style>
+</head>
+
+<body>
+  <article class="balance-app">
+    <header>
+      <h2>My balance
+        <span class="current-balance">$921.48</span>
+      </h2>
+      <a href="#" class="logo-link"><img src="/images/logo.svg"></a>
+    </header>
+    <div class="expences">
+      <div class="chart">
+        <h2>Spending - Last 7 days</h2>
+        <div class="bar" data-expences="30.21"></div>
+        <div class="bar" data-expences="30.21"></div>
+        <div class="bar highest" data-expences="30.21"></div>
+        <div class="bar" data-expences="30.21"></div>
+        <div class="bar" data-expences="30.21"></div>
+        <div class="bar" data-expences="30.21"></div>
+        <div class="bar" data-expences="30.21"></div>
+        <span class="label">mon</span>
+        <span class="label">tue</span>
+        <span class="label">wed</span>
+        <span class="label">thu</span>
+        <span class="label">fri</span>
+        <span class="label">sat</span>
+        <span class="label">sun</span>
+      </div>
+      <div class="result">
+          <h2>Total this month
+          <span class="total-spent">$478.33</span>
+        </h2>
+        <p class="comparison">
+          <span class="to-last-month">+2.4%</span>
+          <span>from last month</span>
+        </p>
+      </div>
+    </div>
+  </article>
+
+
+
+
+
+  <!-- 
+  mon
+  tue
+  wed
+  thu
+  fri
+  sat
+  sun -->
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
