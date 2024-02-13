@@ -38,7 +38,7 @@ const onFail = (error) => {
 const getData = async (onSuccess, onFail) => {
     try {
         const response = await fetch(
-            '../data.json'
+            './data.json'
         );
 
         if (!response.ok) {
