@@ -74,6 +74,7 @@ body {
   }
 
   .chart {
+    min-height: 225px;
     margin-bottom: 20px;
     padding-bottom: 20px;
     display: grid;
@@ -87,8 +88,6 @@ body {
     margin: 0 0 45px;
     font-size: 24px;
     font-weight: 700;
-    grid-area: 1 / 1 / -1 / -1;
-    justify-self: start;
     color: var(--dark-brown);
   }
 
@@ -100,13 +99,13 @@ body {
   .chart .bar {
     width: 100%;
     max-width: 54px;
-    height: 100px;
+    height: 0;
     position: relative;
     align-self: end;
     background-color: var(--soft-red);
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color .3s ease-in-out;
+    transition: background-color .3s ease-in-out, height .3s ease-out;
   }
 
   .chart .bar.highest {
