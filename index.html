@@ -34,7 +34,7 @@
     }
 
     .balance-app header h2 {
-      max-width: 90px;
+      max-width: 120px;
       margin: 0;
       font-size: 16px;
       font-weight: 400;
@@ -67,10 +67,11 @@
     }
 
     .chart h2 {
-      margin: 0 0 50px;
+      margin: 0 0 45px;
       font-size: 24px;
       font-weight: 700;
       grid-area: 1 / 1 / -1 / -1;
+      justify-self: start;
       color: var(--dark-brown);
     }
 
@@ -81,8 +82,10 @@
 
     .chart .bar {
       width: 100%;
+      max-width: 54px;
       height: 100px;
       position: relative;
+      align-self: end;
       background-color: var(--soft-red);
       border-radius: 4px;
       cursor: pointer;
@@ -94,7 +97,7 @@
     }
 
     .chart .bar::before {
-      content: '$'attr(data-expences);
+      content: '$' attr(data-expences);
       position: absolute;
       top: -50px;
       left: 50%;
@@ -139,10 +142,11 @@
     }
 
     .comparison {
-      margin-left: auto;
+      margin: 0 0 0 auto;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      justify-content: flex-end;
       font-size: 16px;
       color: var(--medium-brown);
     }
@@ -162,6 +166,51 @@
     }
 
     @media (min-width: 1024px) {
+      .balance-app header,
+      .balance-app .expences {
+        padding: 27px 32px;
+        border-radius: 21px;
+      }
+
+      .balance-app header {
+        margin-bottom: 20px;
+      }
+
+      .chart {
+        margin-bottom: 32px;
+        padding-bottom: 32px;
+      }
+
+      .result h2 {
+        max-width: 190px;
+      }
+
+      header a>img {
+        width: 78px;
+      }
+
+      .balance-app header h2,
+      .result h2,
+      .comparison {
+        font-size: 18px;
+      }
+
+      .current-balance,
+      .chart h2 {
+        font-size: 32px;
+      }
+
+      .chart .label {
+        font-size: 16px;
+      }
+
+      .chart .bar::before {
+        font-size: 18px;
+      }
+
+      .total-spent {
+        font-size: 48px;
+      }
 
     }
   </style>
@@ -173,14 +222,14 @@
       <h2>My balance
         <span class="current-balance">$921.48</span>
       </h2>
-      <a href="#" class="logo-link"><img src="/images/logo.svg"></a>
+      <a href="#" class="logo-link"><img src="/images/logo.svg" width="60"></a>
     </header>
     <div class="expences">
       <div class="chart">
         <h2>Spending - Last 7 days</h2>
         <div class="bar" data-expences="30.21"></div>
         <div class="bar" data-expences="30.21"></div>
-        <div class="bar highest" data-expences="30.21"></div>
+        <div class="bar" data-expences="30.21"></div>
         <div class="bar" data-expences="30.21"></div>
         <div class="bar" data-expences="30.21"></div>
         <div class="bar" data-expences="30.21"></div>
@@ -194,7 +243,7 @@
         <span class="label">sun</span>
       </div>
       <div class="result">
-          <h2>Total this month
+        <h2>Total this month
           <span class="total-spent">$478.33</span>
         </h2>
         <p class="comparison">
@@ -205,22 +254,9 @@
     </div>
   </article>
 
-
-
-
-
-  <!-- 
-  mon
-  tue
-  wed
-  thu
-  fri
-  sat
-  sun -->
-
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://www.linkedin.com/in/eugenia-antonova-7b4511276/" title="proceed to linkedin">Evgenija Antonova</a>.
   </div>
   <script type="module" src="/js/main.js"></script>
 </body>
